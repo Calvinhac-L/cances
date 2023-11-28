@@ -42,7 +42,7 @@ def authenticate():
   
   
   # Enregistrement du token d'authentification  
-  token_file = "tocken.pickle"
+  token_file = "token.pickle"
 
   if os.path.exists(token_file):
     with open(token_file, 'rb') as token:

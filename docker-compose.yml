@@ -1,0 +1,6 @@
+﻿version: '3'
+services:
+  yt_scraper:
+    build: .
+    volumes:
+      - ./data:/app/data
