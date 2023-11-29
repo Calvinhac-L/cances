@@ -8,6 +8,7 @@ api = SoundcloudAPI()
 USER = "mathieucances"
 BASE_URL = f"https://soundcloud.com/{USER}/sets/"
 DATA_PATH = "./data"
+if not os.path.exists(DATA_PATH) : os.mkdir(DATA_PATH) 
 
 # Module custom pour générer l'arborescence de la biibliothèque sous forme de dictionnaire
 TREE_STRUCTURE = generate_tree_structure(DATA_PATH)
@@ -42,13 +43,11 @@ def download(path, track):
     except:
       print(f"The track {track.title} is marked as 'Not Downloadable'")
       os.remove(os.path.join(path, fname))
+      count += 1
         
-        
-      
- 
  # Fetch toutes les playlists à partir de PLAYLIST_TITLES
 playlists = [api.resolve(BASE_URL + re.sub("\s", "-", title)) for title in PLAYLIST_TITLES]
-count = 0
+
 def main():
   
   # Itération sur chaque playlist récupérée
@@ -75,6 +74,7 @@ def main():
         if not clean_title(track.title) in TREE_STRUCTURE[playlist.title]['videos']:
 
           download(path, track)
+          
 
             
             
