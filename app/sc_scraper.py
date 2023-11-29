@@ -7,6 +7,8 @@ api = SoundcloudAPI()
 
 USER = "mathieucances"
 BASE_URL = f"https://soundcloud.com/{USER}/sets/"
+
+# Dossier cible de la bibliothèque (change en chemin absolu si t'as la flemme de déplacer ton dossier actuel à coté du dossier /app)
 DATA_PATH = "./data"
 if not os.path.exists(DATA_PATH) : os.mkdir(DATA_PATH) 
 
