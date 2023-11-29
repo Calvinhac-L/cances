@@ -43,7 +43,6 @@ def download(path, track):
     except:
       print(f"The track {track.title} is marked as 'Not Downloadable'")
       os.remove(os.path.join(path, fname))
-      count += 1
         
  # Fetch toutes les playlists à partir de PLAYLIST_TITLES
 playlists = [api.resolve(BASE_URL + re.sub("\s", "-", title)) for title in PLAYLIST_TITLES]
